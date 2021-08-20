@@ -7,10 +7,16 @@ class Controller = ControllerBase with _$Controller;
 
 abstract class ControllerBase with Store {
   @observable
-  int counter = 0;
+  String nome = '';
 
-  @action
-  increment() {
-    counter++;
+  @observable
+  String sobrenome = '';
+
+  changeName(String newName) {
+    nome = newName;
+  }
+
+  changeLastName(String newName) {
+    sobrenome = newName;
   }
 }
