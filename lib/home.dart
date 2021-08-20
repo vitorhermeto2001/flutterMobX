@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_mobx/flutter_mobx.dart';
+import 'package:mobx_flutterando/controller.dart';
+import 'controller.dart';
 
 class MyHomePage extends StatelessWidget {
-  int counter = 0;
+  final controller = Controller();
 
   @override
   Widget build(BuildContext context) {
@@ -13,15 +16,19 @@ class MyHomePage extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            Text(
-              '$counter',
-              style: Theme.of(context).textTheme.headline4,
-            ),
+            Observer(builder: (_) {
+              return Text(
+                '${controller.counter.value}',
+                style: Theme.of(context).textTheme.headline4,
+              );
+            })
           ],
         ),
       ),
       floatingActionButton: FloatingActionButton(
-        onPressed: () {},
+        onPressed: () {
+          controller.increment();
+        },
         tooltip: 'Increment',
         child: Icon(Icons.add),
       ), // This trailing comma makes auto-formatting nicer for build methods.
