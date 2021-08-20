@@ -5,7 +5,7 @@ class Client = ClientBase with _$Client;
 
 abstract class ClientBase with Store {
   @observable
-  String name = '';
+  var name;
   @action
   changeName(String newValue) => name = newValue;
 
