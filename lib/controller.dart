@@ -1,7 +1,12 @@
+import 'dart:developer';
+
 import 'package:mobx/mobx.dart';
 
 class Controller {
-  var counter = Observable(0);
+  var _counter = Observable(0);
+  int get counter => _counter.value;
+  set counter(int newValue) => _counter.value = newValue;
+
   var increment;
 
   Controller() {
@@ -9,6 +14,6 @@ class Controller {
   }
 
   _increment() {
-    counter.value = counter.value + 1;
+    counter++;
   }
 }

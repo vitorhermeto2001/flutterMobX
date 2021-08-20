@@ -18,7 +18,7 @@ class MyHomePage extends StatelessWidget {
           children: <Widget>[
             Observer(builder: (_) {
               return Text(
-                '${controller.counter.value}',
+                '${controller.counter}',
                 style: Theme.of(context).textTheme.headline4,
               );
             })
