@@ -19,13 +19,17 @@ class MyHomePage extends StatelessWidget {
               child: Column(children: [
                 TextField(
                   decoration: InputDecoration(labelText: 'Nome'),
+                  onChanged: controller.changeName,
                 ),
                 SizedBox(height: 20),
                 TextField(
                   decoration: InputDecoration(labelText: 'Sobrenome'),
+                  onChanged: controller.changeLastName,
                 ),
                 SizedBox(height: 50),
-                Text('Nome completo')
+                Observer(builder: (_) {
+                  return Text("${controller.nome} ${controller.sobrenome}");
+                })
               ]))
         ]),
       ),
