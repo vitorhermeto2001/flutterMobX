@@ -37,6 +37,29 @@ class _HomePageState extends State<HomePage> {
                 onChanged: controller.client.changeName,
                 errorText: controller.validateName,
               );
+            }),
+            SizedBox(height: 20),
+            Observer(builder: (_) {
+              return _textField(
+                labelText: "email",
+                onChanged: controller.client.changeEmail,
+                errorText: controller.validateEmail,
+              );
+            }),
+            SizedBox(height: 20),
+            Observer(builder: (_) {
+              return _textField(
+                labelText: "CPF",
+                onChanged: controller.client.changeCpf,
+                errorText: controller.validateCpf,
+              );
+            }),
+            SizedBox(height: 50),
+            Observer(builder: (_) {
+              return ElevatedButton(
+                onPressed: controller.isValid ? () {} : null,
+                child: Text('Salvar'),
+              );
             })
           ],
         ),

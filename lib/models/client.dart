@@ -10,12 +10,12 @@ abstract class ClientBase with Store {
   changeName(String newValue) => name = newValue;
 
   @observable
-  String email = '';
+  var email;
   @action
   changeEmail(String newValue) => email = newValue;
 
   @observable
-  String cpf = '';
+  var cpf;
   @action
   changeCpf(String newValue) => cpf = newValue;
 }

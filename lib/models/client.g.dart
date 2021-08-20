@@ -27,13 +27,13 @@ mixin _$Client on ClientBase, Store {
   final _$emailAtom = Atom(name: 'ClientBase.email');
 
   @override
-  String get email {
+  dynamic get email {
     _$emailAtom.reportRead();
     return super.email;
   }
 
   @override
-  set email(String value) {
+  set email(dynamic value) {
     _$emailAtom.reportWrite(value, super.email, () {
       super.email = value;
     });
@@ -42,13 +42,13 @@ mixin _$Client on ClientBase, Store {
   final _$cpfAtom = Atom(name: 'ClientBase.cpf');
 
   @override
-  String get cpf {
+  dynamic get cpf {
     _$cpfAtom.reportRead();
     return super.cpf;
   }
 
   @override
-  set cpf(String value) {
+  set cpf(dynamic value) {
     _$cpfAtom.reportWrite(value, super.cpf, () {
       super.cpf = value;
     });
