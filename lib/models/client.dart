@@ -1,5 +1,5 @@
 import 'package:mobx/mobx.dart';
-part 'cliente.g.dart';
+part 'client.g.dart';
 
 class Client = ClientBase with _$Client;
 
@@ -12,10 +12,10 @@ abstract class ClientBase with Store {
   @observable
   String email = '';
   @action
-  changeEmail(String newValue => email = newValue;
+  changeEmail(String newValue) => email = newValue;
 
   @observable
   String cpf = '';
   @action
-  changeCpf(String newValue => cpf = newValue;
+  changeCpf(String newValue) => cpf = newValue;
 }

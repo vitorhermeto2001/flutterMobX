@@ -7,6 +7,17 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+  _textField({labelText, onChanged, errorText}) {
+    return TextField(
+      onChanged: onChanged,
+      decoration: InputDecoration(
+        border: OutlineInputBorder(),
+        labelText: labelText,
+        errorText: errorText == null ? null : errorText(),
+      ),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -16,7 +27,7 @@ class _HomePageState extends State<HomePage> {
         body: Padding(
           padding: const EdgeInsets.all(8.0),
           child: Column(
-            children: [],
+            children: [_textField(labelText: "name")],
           ),
         ) // This trailing comma makes auto-formatting nicer for build methods.
         );
