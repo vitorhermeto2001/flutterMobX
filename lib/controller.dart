@@ -12,6 +12,9 @@ abstract class ControllerBase with Store {
   @observable
   String sobrenome = '';
 
+  @computed
+  String get nomecompleto => "$nome $sobrenome";
+
   changeName(String newName) {
     nome = newName;
   }
