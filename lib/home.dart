@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
+import 'package:mobx_flutterando/body.dart';
 import 'package:mobx_flutterando/controller.dart';
 
 class HomePage extends StatefulWidget {
@@ -24,46 +25,9 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text("Formulário"),
-      ),
-      body: Padding(
-        padding: const EdgeInsets.all(8.0),
-        child: Column(
-          children: <Widget>[
-            Observer(builder: (_) {
-              return _textField(
-                labelText: "name",
-                onChanged: controller.client.changeName,
-                errorText: controller.validateName,
-              );
-            }),
-            SizedBox(height: 20),
-            Observer(builder: (_) {
-              return _textField(
-                labelText: "email",
-                onChanged: controller.client.changeEmail,
-                errorText: controller.validateEmail,
-              );
-            }),
-            SizedBox(height: 20),
-            Observer(builder: (_) {
-              return _textField(
-                labelText: "CPF",
-                onChanged: controller.client.changeCpf,
-                errorText: controller.validateCpf,
-              );
-            }),
-            SizedBox(height: 50),
-            Observer(builder: (_) {
-              return ElevatedButton(
-                onPressed: controller.isValid ? () {} : null,
-                child: Text('Salvar'),
-              );
-            })
-          ],
+        appBar: AppBar(
+          title: Text("Formulário"),
         ),
-      ), // This trailing comma makes auto-formatting nicer for build methods.
-    );
+        body: BodyWidget(controller));
   }
 }
