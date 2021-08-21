@@ -37,4 +37,6 @@ abstract class _ControllerBase with Store {
     }
     return null;
   }
+
+  dispose() {}
 }
