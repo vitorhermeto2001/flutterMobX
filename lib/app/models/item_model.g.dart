@@ -8,59 +8,59 @@ part of 'item_model.dart';
 
 // ignore_for_file: non_constant_identifier_names, unnecessary_brace_in_string_interps, unnecessary_lambdas, prefer_expression_function_bodies, lines_longer_than_80_chars, avoid_as, avoid_annotating_with_dynamic
 
-mixin _$itemModel on _itemModelBase, Store {
-  final _$titleAtom = Atom(name: '_itemModelBase.title');
+mixin _$ItemModel on _ItemModelBase, Store {
+  final _$titleAtom = Atom(name: '_ItemModelBase.title');
 
   @override
-  String? get title {
+  String get title {
     _$titleAtom.reportRead();
     return super.title;
   }
 
   @override
-  set title(String? value) {
+  set title(String value) {
     _$titleAtom.reportWrite(value, super.title, () {
       super.title = value;
     });
   }
 
-  final _$checkAtom = Atom(name: '_itemModelBase.check');
+  final _$checkAtom = Atom(name: '_ItemModelBase.check');
 
   @override
-  bool? get check {
+  bool get check {
     _$checkAtom.reportRead();
     return super.check;
   }
 
   @override
-  set check(bool? value) {
+  set check(bool value) {
     _$checkAtom.reportWrite(value, super.check, () {
       super.check = value;
     });
   }
 
-  final _$_itemModelBaseActionController =
-      ActionController(name: '_itemModelBase');
+  final _$_ItemModelBaseActionController =
+      ActionController(name: '_ItemModelBase');
 
   @override
   dynamic setTitle(String value) {
-    final _$actionInfo = _$_itemModelBaseActionController.startAction(
-        name: '_itemModelBase.setTitle');
+    final _$actionInfo = _$_ItemModelBaseActionController.startAction(
+        name: '_ItemModelBase.setTitle');
     try {
       return super.setTitle(value);
     } finally {
-      _$_itemModelBaseActionController.endAction(_$actionInfo);
+      _$_ItemModelBaseActionController.endAction(_$actionInfo);
     }
   }
 
   @override
-  dynamic setCheck(bool value) {
-    final _$actionInfo = _$_itemModelBaseActionController.startAction(
-        name: '_itemModelBase.setCheck');
+  dynamic setCheck(bool? value) {
+    final _$actionInfo = _$_ItemModelBaseActionController.startAction(
+        name: '_ItemModelBase.setCheck');
     try {
       return super.setCheck(value);
     } finally {
-      _$_itemModelBaseActionController.endAction(_$actionInfo);
+      _$_ItemModelBaseActionController.endAction(_$actionInfo);
     }
   }
 
