@@ -2,13 +2,9 @@ import 'package:flutter/cupertino.dart';
 import 'package:mobx_flutterando/controller.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
-import 'package:mobx_flutterando/models/client.dart';
+import 'package:provider/provider.dart';
 
 class BodyWidget extends StatelessWidget {
-  final Controller controller;
-
-  const BodyWidget(this.controller, [Key? key]) : super(key: key);
-
   _textField({labelText, onChanged, errorText}) {
     return TextField(
       onChanged: onChanged,
@@ -22,9 +18,12 @@ class BodyWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final controller = Provider.of<Controller>(context);
+
     return Padding(
       padding: const EdgeInsets.all(8.0),
-      child: Column(
+      child: ListView(
+        shrinkWrap: true,
         children: <Widget>[
           Observer(builder: (_) {
             return _textField(

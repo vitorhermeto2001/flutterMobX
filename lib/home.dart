@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:mobx_flutterando/body.dart';
 import 'package:mobx_flutterando/controller.dart';
+import 'package:provider/provider.dart';
 
 class HomePage extends StatefulWidget {
   @override
@@ -9,25 +10,20 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  final controller = Controller();
-
-  _textField({labelText, onChanged, errorText}) {
-    return TextField(
-      onChanged: onChanged,
-      decoration: InputDecoration(
-        border: OutlineInputBorder(),
-        labelText: labelText,
-        errorText: errorText == null ? null : errorText(),
-      ),
-    );
-  }
-
   @override
   Widget build(BuildContext context) {
+    final controller = Provider.of<Controller>(context);
+
     return Scaffold(
         appBar: AppBar(
-          title: Text("Formulário"),
+          title: Observer(
+            builder: (_) {
+              return Text(controller.isValid
+                  ? 'Formulário Validado'
+                  : 'Formulário Não Validado');
+            },
+          ),
         ),
-        body: BodyWidget(controller));
+        body: BodyWidget());
   }
 }
