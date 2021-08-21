@@ -6,9 +6,14 @@ class HomeController = _HomeControllerBase with _$HomeController;
 
 abstract class _HomeControllerBase with Store {
   @observable
-  List<ItemModel> listItems = [
+  ObservableList<ItemModel> listItems = [
     ItemModel(title: "Item 1", check: true),
     ItemModel(title: "Item 2", check: false),
     ItemModel(title: "Item 3", check: false),
-  ];
+  ].asObservable();
+
+  @action
+  addItem(ItemModel model) {
+    listItems.add(model);
+  }
 }

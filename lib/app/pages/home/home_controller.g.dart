@@ -12,16 +12,30 @@ mixin _$HomeController on _HomeControllerBase, Store {
   final _$listItemsAtom = Atom(name: '_HomeControllerBase.listItems');
 
   @override
-  List<ItemModel> get listItems {
+  ObservableList<ItemModel> get listItems {
     _$listItemsAtom.reportRead();
     return super.listItems;
   }
 
   @override
-  set listItems(List<ItemModel> value) {
+  set listItems(ObservableList<ItemModel> value) {
     _$listItemsAtom.reportWrite(value, super.listItems, () {
       super.listItems = value;
     });
+  }
+
+  final _$_HomeControllerBaseActionController =
+      ActionController(name: '_HomeControllerBase');
+
+  @override
+  dynamic addItem(ItemModel model) {
+    final _$actionInfo = _$_HomeControllerBaseActionController.startAction(
+        name: '_HomeControllerBase.addItem');
+    try {
+      return super.addItem(model);
+    } finally {
+      _$_HomeControllerBaseActionController.endAction(_$actionInfo);
+    }
   }
 
   @override
