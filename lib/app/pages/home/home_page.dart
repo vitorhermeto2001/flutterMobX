@@ -58,7 +58,12 @@ class _HomePageState extends State<HomePage> {
           itemCount: controller.listItems.length,
           itemBuilder: (_, index) {
             var item = controller.listItems[index];
-            return ItemWidget(item: item);
+            return ItemWidget(
+              item: item,
+              removeClicked: () {
+                return controller.removeItem(item);
+              },
+            );
           },
         );
       }),

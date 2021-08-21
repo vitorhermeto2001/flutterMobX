@@ -39,6 +39,17 @@ mixin _$HomeController on _HomeControllerBase, Store {
   }
 
   @override
+  dynamic removeItem(ItemModel model) {
+    final _$actionInfo = _$_HomeControllerBaseActionController.startAction(
+        name: '_HomeControllerBase.removeItem');
+    try {
+      return super.removeItem(model);
+    } finally {
+      _$_HomeControllerBaseActionController.endAction(_$actionInfo);
+    }
+  }
+
+  @override
   String toString() {
     return '''
 listItems: ${listItems}

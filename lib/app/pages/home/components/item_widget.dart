@@ -4,8 +4,10 @@ import 'package:mobx_flutterando/app/models/item_model.dart';
 
 class ItemWidget extends StatelessWidget {
   final ItemModel item;
+  final Function removeClicked;
 
-  const ItemWidget({Key? key, required this.item}) : super(key: key);
+  const ItemWidget({Key? key, required this.item, required this.removeClicked})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -19,7 +21,9 @@ class ItemWidget extends StatelessWidget {
         trailing: IconButton(
           color: Colors.red,
           icon: Icon(Icons.remove_circle),
-          onPressed: () {},
+          onPressed: () {
+            return removeClicked();
+          },
         ),
       );
     });
