@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
+import 'package:mobx/mobx.dart';
 import 'package:mobx_flutterando/app/models/item_model.dart';
 import 'package:mobx_flutterando/app/pages/home/home_controller.dart';
 import 'components/item_widget.dart';
@@ -52,6 +53,14 @@ class _HomePageState extends State<HomePage> {
         title: TextField(
           decoration: InputDecoration(hintText: "Pesquisa..."),
         ),
+        actions: <Widget>[
+          IconButton(
+            icon: Observer(builder: (_) {
+              return Text("${controller.totalChecked}");
+            }),
+            onPressed: () {},
+          ),
+        ],
       ),
       body: Observer(builder: (_) {
         return ListView.builder(

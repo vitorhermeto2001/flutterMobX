@@ -12,6 +12,9 @@ abstract class _HomeControllerBase with Store {
     ItemModel(title: "Item 3", check: false),
   ].asObservable();
 
+  @computed
+  int get totalChecked => listItems.where((item) => item.check).length;
+
   @action
   addItem(ItemModel model) {
     listItems.add(model);
